@@ -21,7 +21,7 @@
   },
   "include": [
     "src",
-    ".eslintrc.cjs",
+    ".eslintrc.cjs", "../setupTests.tsx",
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
