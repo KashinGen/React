@@ -4,7 +4,7 @@ class NotFound extends React.Component<Record<string, never>, Record<string, nev
   state = {};
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Not Found</h1>
       </div>
     );

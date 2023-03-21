@@ -4,7 +4,7 @@ class About extends React.Component<Record<string, never>, Record<string, never>
   state = {};
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>About</h1>
       </div>
     );
