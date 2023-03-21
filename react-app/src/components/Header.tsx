@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Route, Routes } from 'react-router-dom';
 
 class Header extends React.Component<Record<string, never>, Record<string, never>> {
   render() {
@@ -26,6 +26,13 @@ class Header extends React.Component<Record<string, never>, Record<string, never
               </svg>
               <h2>КупиЧоХошь</h2>
             </Link>
+            <h2>
+              <Routes>
+                <Route path="/" element={'Main'} />
+                <Route path="/about" element={'About'} />
+                <Route path="*" element={'NotFound'} />
+              </Routes>
+            </h2>
             <nav className="nav">
               <ul className="nav__list">
                 <li>

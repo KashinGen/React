@@ -7,7 +7,6 @@ interface Props {
 
 class Card extends React.Component<Props, Record<string, never>> {
   render() {
-    console.log(this.props.cartItem);
     const { cartItem } = this.props;
     const backgroundStyle = `url('${cartItem.thumbnail}') center/cover`;
     return (
