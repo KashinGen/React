@@ -1,7 +1,7 @@
 import React from 'react';
 import CardList from '../components/CardList';
 import CustomInput from '../components/CustomInput';
-import { CartItem, ProductsResponse } from '../types';
+import { CartItem } from '../types';
 import data from '../db.json';
 
 interface State {
@@ -12,17 +12,6 @@ class Main extends React.Component<Record<string, never>, State> {
   state: State = {
     items: data.products,
   };
-
-  async componentDidMount() {
-    // const resp = await fetch('src/db.json');
-    // const data: ProductsResponse = await resp.json();
-    // if (data.products) {
-    //   this.setState({
-    //     ...this.state,
-    //     items: data.products,
-    //   });
-    // }
-  }
 
   render() {
     return (
