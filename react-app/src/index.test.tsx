@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import { MemoryRouter } from 'react-router-dom';
-import Card from './components/Card';
-import CardList from './components/CardList';
+import Card from './components/ProductCard';
+import CardList from './components/ProductsList';
 
 describe('App', () => {
   it('render App', () => {

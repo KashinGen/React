@@ -22,13 +22,12 @@ class CustomInput extends React.Component<Record<string, never>, CustomInputStat
     localStorage.setItem('value', this.state.value);
   }
   render() {
-    const { value } = this.props;
     return (
       <div className="input-search">
         <input
           type="text"
           placeholder="Найти товар"
-          value={value}
+          value={this.state.value}
           onChange={this.onChanged.bind(this)}
           className="input-search__input"
         />

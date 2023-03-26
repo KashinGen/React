@@ -1,12 +1,12 @@
 import React from 'react';
 import { CartItem } from '../types';
-import Card from './Card';
+import Card from './ProductCard';
 
 interface Props {
   items: CartItem[];
 }
 
-class CardList extends React.Component<Props, Record<string, never>> {
+class ProductsList extends React.Component<Props, Record<string, never>> {
   state = {};
   render() {
     const { items } = this.props;
@@ -18,4 +18,4 @@ class CardList extends React.Component<Props, Record<string, never>> {
   }
 }
 
-export default CardList;
+export default ProductsList;

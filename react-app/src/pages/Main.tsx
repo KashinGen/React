@@ -1,6 +1,6 @@
 import React from 'react';
-import CardList from '../components/CardList';
-import CustomInput from '../components/CustomInput';
+import CardList from '../components/ProductsList';
+import CustomInput from '../components/SearchInput';
 import { CartItem } from '../types';
 import data from '../db.json';
 
