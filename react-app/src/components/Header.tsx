@@ -30,6 +30,7 @@ class Header extends React.Component<Record<string, never>, Record<string, never
               <Routes>
                 <Route path="/" element={'Main'} />
                 <Route path="/about" element={'About'} />
+                <Route path="/form" element={'Form'} />
                 <Route path="*" element={'NotFound'} />
               </Routes>
             </h2>
@@ -40,6 +41,9 @@ class Header extends React.Component<Record<string, never>, Record<string, never
                 </li>
                 <li>
                   <NavLink to="/about">About</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/form">Form</NavLink>
                 </li>
               </ul>
             </nav>

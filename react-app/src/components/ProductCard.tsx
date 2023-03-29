@@ -40,7 +40,20 @@ class ProductCard extends React.Component<Props, Record<string, never>> {
             <li>
               <span>В наличии</span>
               <span></span>
-              <span>{cartItem.stock} шт.</span>
+              <span>{cartItem.in_stock ? 'Да' : 'Под заказ'}</span>
+            </li>
+            <li>
+              <span>Оплата</span>
+              <span></span>
+              <span>
+                {cartItem.pay_method.map((pay, index) => {
+                  return (
+                    <span key={pay}>
+                      {pay} {index < cartItem.pay_method.length - 1 ? ',' : ''}
+                    </span>
+                  );
+                })}
+              </span>
             </li>
           </ul>
           <div style={{ flex: '1 1 0%' }}></div>

@@ -1,17 +1,24 @@
 export interface CartItem {
-  id: number;
+  id: string;
   title: string;
-  description: string;
   price: number;
-  discountPercentage: number;
   rating: number;
-  stock: number;
+  in_stock: INSTOCK;
+  pay_method: PayMethod[];
   brand: string;
   category: string;
   thumbnail: string;
-  images: string[];
+  date?: Date;
 }
 
+export enum PayMethod {
+  CASH = 'cash',
+  CARD = 'card',
+}
+export enum INSTOCK {
+  'YES',
+  'NO',
+}
 export interface ProductsResponse {
   limit: number;
   products: CartItem[];
