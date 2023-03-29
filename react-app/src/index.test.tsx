@@ -4,7 +4,37 @@ import App from './App';
 import { MemoryRouter } from 'react-router-dom';
 import Card from './components/ProductCard';
 import CardList from './components/ProductsList';
+import { INSTOCK, PayMethod } from './types';
+import Form from './components/Form';
+import About from './pages/About';
+import FormPage from './pages/Form';
 
+describe('Pages', () => {
+  it('render About', () => {
+    render(
+      <MemoryRouter>
+        <About />
+      </MemoryRouter>
+    );
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+      })
+    ).toHaveTextContent('About');
+  });
+  it('render Form Page', () => {
+    render(
+      <MemoryRouter>
+        <FormPage />
+      </MemoryRouter>
+    );
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+      })
+    ).toHaveTextContent('Form');
+  });
+});
 describe('App', () => {
   it('render App', () => {
     render(
@@ -31,23 +61,15 @@ describe('App', () => {
 
 describe('render one Card', () => {
   const card = {
-    id: 1,
+    id: '1',
     title: 'iPhone 9',
-    description: 'An apple mobile which is nothing like apple',
     price: 549,
-    discountPercentage: 12.96,
     rating: 4.69,
-    stock: 94,
+    in_stock: INSTOCK.YES,
     brand: 'Apple',
+    pay_method: [PayMethod.CARD],
     category: 'smartphones',
     thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-    images: [
-      'https://i.dummyjson.com/data/products/1/1.jpg',
-      'https://i.dummyjson.com/data/products/1/2.jpg',
-      'https://i.dummyjson.com/data/products/1/3.jpg',
-      'https://i.dummyjson.com/data/products/1/4.jpg',
-      'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-    ],
   };
   beforeEach(() => {
     render(<Card key={card.id} cartItem={card} />);
@@ -71,48 +93,48 @@ describe('render one Card', () => {
 describe('render two cards', () => {
   const cards = [
     {
-      id: 1,
+      id: '1',
       title: 'iPhone 9',
-      description: 'An apple mobile which is nothing like apple',
       price: 549,
-      discountPercentage: 12.96,
       rating: 4.69,
-      stock: 94,
+      in_stock: INSTOCK.YES,
       brand: 'Apple',
+      pay_method: [PayMethod.CARD],
       category: 'smartphones',
       thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-      images: [
-        'https://i.dummyjson.com/data/products/1/1.jpg',
-        'https://i.dummyjson.com/data/products/1/2.jpg',
-        'https://i.dummyjson.com/data/products/1/3.jpg',
-        'https://i.dummyjson.com/data/products/1/4.jpg',
-        'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
-      ],
     },
     {
-      id: 4,
-      title: 'OPPOF19',
-      description: 'OPPO F19 is officially announced on April 2021.',
-      price: 280,
-      discountPercentage: 17.91,
-      rating: 4.3,
-      stock: 123,
+      id: '2',
+      title: 'OPPO 19',
+      price: 549,
+      rating: 4.69,
+      in_stock: INSTOCK.YES,
       brand: 'OPPO',
+      pay_method: [PayMethod.CASH],
       category: 'smartphones',
-      thumbnail: 'https://i.dummyjson.com/data/products/4/thumbnail.jpg',
-      images: [
-        'https://i.dummyjson.com/data/products/4/1.jpg',
-        'https://i.dummyjson.com/data/products/4/2.jpg',
-        'https://i.dummyjson.com/data/products/4/3.jpg',
-        'https://i.dummyjson.com/data/products/4/4.jpg',
-        'https://i.dummyjson.com/data/products/4/thumbnail.jpg',
-      ],
+      thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
     },
   ];
   beforeEach(() => {});
   it('renders card with title', () => {
     render(<CardList items={cards} />);
     expect(screen.getByText(/iPhone 9/)).toBeInTheDocument();
-    expect(screen.getByText(/OPPOF19/)).toBeInTheDocument();
+    expect(screen.getByText(/OPPO 19/)).toBeInTheDocument();
+  });
+});
+
+describe('Create', () => {
+  it('renders Form component', () => {
+    render(<Form onSubmit={() => {}} />);
+
+    expect(screen.getByText(/Title/i)).toBeInTheDocument();
+    expect(screen.getByText(/Rating/i)).toBeInTheDocument();
+    expect(screen.getByText(/Date/i)).toBeInTheDocument();
+    expect(screen.getByText(/Price/i)).toBeInTheDocument();
+    expect(screen.getByText(/In stock/i)).toBeInTheDocument();
+    expect(screen.getByText(/Pay method/i)).toBeInTheDocument();
+    expect(screen.getByText(/Brand/i)).toBeInTheDocument();
+    expect(screen.getByText(/Category/i)).toBeInTheDocument();
+    expect(screen.getByText(/Image/i)).toBeInTheDocument();
   });
 });

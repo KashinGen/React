@@ -20,6 +20,7 @@ class FormPage extends React.Component<Record<string, never>, FormPageState> {
       <main>
         <div className="container">
           <div className="form-page__inner">
+            <h1>Form</h1>
             <Form onSubmit={this.onSubmit.bind(this)} />
             <ProductsList items={this.state.cards} />
           </div>
