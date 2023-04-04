@@ -5,9 +5,7 @@ interface Props {
   cartItem: CartItem;
 }
 
-class ProductCard extends React.Component<Props, Record<string, never>> {
-  render() {
-    const { cartItem } = this.props;
+const ProductCard = ({cartItem} : Props) => {
     const backgroundStyle = `url('${cartItem.thumbnail}') center/cover`;
     return (
       <div className="product-card">
@@ -64,7 +62,6 @@ class ProductCard extends React.Component<Props, Record<string, never>> {
         </button>
       </div>
     );
-  }
 }
 
 export default ProductCard;

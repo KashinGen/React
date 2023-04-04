@@ -7,9 +7,7 @@ interface ControlWrapperProps {
   children: React.ReactNode;
 }
 
-class ControlWrapper extends React.Component<ControlWrapperProps, Record<string, never>> {
-  render() {
-    const { children, label, errorText, error } = this.props;
+const ControlWrapper =  ({ children, label, errorText, error }: ControlWrapperProps) => {
     return (
       <div className="control-wrapper">
         <label>
@@ -19,7 +17,6 @@ class ControlWrapper extends React.Component<ControlWrapperProps, Record<string,
         {error && <span className="control-wrapper__error">{errorText}</span>}
       </div>
     );
-  }
 }
 
 export default ControlWrapper;

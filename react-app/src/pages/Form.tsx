@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from '../components/Form';
 import ProductsList from '../components/ProductsList';
 import { CartItem } from 'types';
@@ -7,27 +7,25 @@ interface FormPageState {
   cards: CartItem[];
 }
 
-class FormPage extends React.Component<Record<string, never>, FormPageState> {
-  state = { cards: [] };
-  onSubmit(item: CartItem) {
-    console.log(item);
-    const cards: CartItem[] = this.state.cards;
-    cards.push(item);
-    this.setState({ ...this.state, cards });
+const FormPage  = () => {
+  const [cards, setCards] = useState<CartItem[]>([])
+
+  const onSubmit = (item: CartItem) => {
+    setCards([...cards, item]);
   }
-  render() {
+
+
     return (
       <main>
         <div className="container">
           <div className="form-page__inner">
             <h1>Form</h1>
-            <Form onSubmit={this.onSubmit.bind(this)} />
-            <ProductsList items={this.state.cards} />
+            <Form onSubmit={onSubmit} />
+            <ProductsList items={cards} />
           </div>
         </div>
       </main>
     );
-  }
 }
 
 export default FormPage;
