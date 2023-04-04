@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CardList from '../components/ProductsList';
 import CustomInput from '../components/SearchInput';
 import { CartItem } from '../types';
-import data from '../db.json';
+import { data } from '../db.js';
 
 const Main = () => {
   const [items, setItems] = useState<CartItem[]>(data.products);
