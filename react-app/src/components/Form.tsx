@@ -39,7 +39,6 @@ const Form = ({ onSubmit }: FormProps) => {
       delete card.date;
     }
     card.id = uuid();
-    console.log(card);
     onSubmit(card as CartItem);
     setIsSubmitting(false);
     reset();
