@@ -1,6 +1,6 @@
 import React from 'react';
 import ControlWrapper from './UI/ControlWrapper';
-import { CartItem, FormValues, INSTOCK, PayMethod } from '../types';
+import { CartItem, INSTOCK, PayMethod } from '../types';
 import { v4 as uuid } from 'uuid';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
 

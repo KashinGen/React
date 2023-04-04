@@ -5,7 +5,7 @@ import { CartItem } from '../types';
 import { data } from '../db.js';
 
 const Main = () => {
-  const [items, setItems] = useState<CartItem[]>(data.products);
+  const [items] = useState<CartItem[]>(data.products);
 
   return (
     <div className="main">

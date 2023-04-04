@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const CustomInput = () => {
   const [inputValue, setInputValue] = useState<string>(
     localStorage.getItem('value') !== null ? localStorage.getItem('value')! : ''
   );
 
-  const onChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChanged = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setInputValue(value);
-  };
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('value', inputValue);

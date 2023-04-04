@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Form from '../components/Form';
 import ProductsList from '../components/ProductsList';
 import { CartItem } from 'types';
@@ -6,9 +6,12 @@ import { CartItem } from 'types';
 const FormPage = () => {
   const [cards, setCards] = useState<CartItem[]>([]);
 
-  const onSubmit = (item: CartItem) => {
-    setCards([...cards, item]);
-  };
+  const onSubmit = useCallback(
+    (item: CartItem) => {
+      setCards([...cards, item]);
+    },
+    [cards]
+  );
 
   return (
     <main>

@@ -25,13 +25,3 @@ export interface ProductsResponse {
   skip: number;
   total: number;
 }
-
-export type FormValues = {
-  title: string;
-  price: string;
-  rating: string;
-  date: string;
-  agreement: string;
-  in_stock: INSTOCK;
-  img: FileList;
-};
