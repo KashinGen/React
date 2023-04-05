@@ -28,8 +28,9 @@ const Form = ({ onSubmit }: FormProps) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({ reValidateMode: 'onSubmit' });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [btnText, setBtnText] = React.useState('Save');
 
   const onSumbitHandler: SubmitHandler<FieldValues> = (values): void => {
     setIsSubmitting(true);
@@ -40,7 +41,12 @@ const Form = ({ onSubmit }: FormProps) => {
     }
     card.id = uuid();
     onSubmit(card as CartItem);
-    setIsSubmitting(false);
+    const [btnText, setBtnText] = React.useState('Save');
+    setBtnText('Saved')
+    setTimeout(() => {
+      setBtnText('Save')
+      setIsSubmitting(false);
+    })
     reset();
   };
 
@@ -145,7 +151,7 @@ const Form = ({ onSubmit }: FormProps) => {
         </ControlWrapper>
       </div>
       <button type="submit" disabled={isSubmitting}>
-        Create
+        {btnText}
       </button>
     </form>
   );
