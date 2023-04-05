@@ -41,12 +41,11 @@ const Form = ({ onSubmit }: FormProps) => {
     }
     card.id = uuid();
     onSubmit(card as CartItem);
-    const [btnText, setBtnText] = React.useState('Save');
-    setBtnText('Saved')
+    setBtnText('Saved');
     setTimeout(() => {
-      setBtnText('Save')
+      setBtnText('Save');
       setIsSubmitting(false);
-    })
+    }, 1000);
     reset();
   };
 
